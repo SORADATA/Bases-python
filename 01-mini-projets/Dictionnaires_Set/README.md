@@ -1,6 +1,6 @@
 # Projet : Gestionnaire de Panier d'Achat
 
-##  Mission
+##  Mission  
 
 > Vous êtes un data scientist au sein d'une entreprise d'e-commerce.
 
