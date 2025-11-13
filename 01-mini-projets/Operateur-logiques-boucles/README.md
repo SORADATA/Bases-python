@@ -10,7 +10,7 @@
 
 -  Structures conditionnelles : if , elif et else. 
 
-Voici vos données de départ (une seule variable string) :
+Voici les  données de départ :
 
 ```python
   
