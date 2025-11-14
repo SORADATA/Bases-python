@@ -36,7 +36,7 @@ print(panier)  # Voici le maj
 # Etape 5 : Calculer le total (Dictionnaire + Set)
 
 total = 0
-for i in catalogue:
+for i in panier:
 
     prix_article = catalogue[i]
      
