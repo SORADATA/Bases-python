@@ -9,36 +9,7 @@ Ce dépôt sert de journal de bord et de portfolio pour ma montée en compétenc
 2. **Pratiquer Git** : Utiliser ce dépôt comme un "bac à sable " pour m'entraîner à utiliser Git de manière plus avancée (branches, merge requests, gestion des conflits , etc...)
 
 
-## Descritption des dossiers 
-
-Pour garder ce dépôt organisé au fur et à mesure que les projets s'ajoutent, voici la structure :
-
-
-- **README.md** :  Ce fichier décrit le projet 
-
-- **.gitignore** : Fichier crucial pour ignorer les fichiers non nécessaires (ex: venv/, __pycache__/, .env, *.csv).
-
-- **/01-scripts-python/** : Contient des scripts Python simples et autonomes.
-
-    **Exemple** : manipulation_fichiers.py, comprehension_listes.py, basics_api.py.....
-
-
-- **/02-librairies-data/** : Contient des carnets (Jupyter Notebooks) ou des scripts dédiés à l'apprentissage d'une bibliothèque spécifique.
-
-    **Exemples de sous-dossiers** : - [ ] pandas/ : Exercices sur la manipulation de DataFrames.
-                             - [ ] numpy/ : Exercices sur le calcul matriciel.
-                             - [ ] matplotlib_seaborn/ : Exemples de visualisations de données.
-                             - [ ] scikit-learn/ : Premiers pas en Machine Learning.
-
-- **/03-mini-projets/** : Contient des projets plus complets qui combinent plusieurs notions.
-
-    Chaque projet vit dans son propre sous-dossier et devrait contenir :
-
-    Un README.md spécifique qui décrit le projet.
-
-    Un fichier requirements.txt (si les dépendances sont spécifiques).
-
-## Extensions GitLab
+## Extensions GitLab ou git
 
 cd existing_repo
 
