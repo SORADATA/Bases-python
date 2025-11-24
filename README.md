@@ -9,7 +9,12 @@ Ce dépôt sert de journal de bord et de portfolio pour ma montée en compétenc
 2. **Pratiquer Git** : Utiliser ce dépôt comme un "bac à sable " pour m'entraîner à utiliser Git de manière plus avancée (branches, merge requests, gestion des conflits , etc...)
 
 
+ Contenu de ma branche actuelle (HEAD)
+
 ## Extensions GitLab
+
+## Extensions GitLab ou git
+ Contenu de la branche que j'essaie d'intégrer (dev)
 
 cd existing_repo
 
@@ -39,26 +44,74 @@ git push -uf origin main
 | `ops` | **Opérations** : Changements liés aux opérations (infrastructure, déploiement, sauvegarde, etc.). |
 | `chore` | **Corvée / Tâche** : Tâches diverses qui ne concernent pas le code source (ex: mise à jour du .gitignore, scripts internes). |
 
-## Integrate with your tools
+## Git command 
 
-- [ ] [Set up project integrations](https://forge.dgfip.finances.rie.gouv.fr/mousslab/git_skills/-/settings/integrations)
+### 1. 🔧 Configuration (À faire une seule fois)
 
-## Collaborations
+| Commande | Description |
+|---|---|
+| `git config --global user.name "Votre Nom"` | Définit votre nom pour tous vos commits. |
+| `git config --global user.email "votre.email@example.com"` | Définit votre email pour tous vos commits. |
+| `git config --global init.defaultBranch main` | (Recommandé) Utilise `main` comme nom de branche par défaut. |
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+---
 
-## Test and deployments
+### 2. 🚀 Démarrer un Projet
 
-Use the built-in continuous integration in GitLab.
+| Commande | Description |
+|---|---|
+| `git init` | Initialise un nouveau dépôt Git dans le dossier actuel. |
+| `git clone <url_du_depot>` | Clone (télécharge) un projet distant et son historique. |
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+---
 
+### 3. 💻 Le Travail Quotidien (La boucle essentielle)
 
+C'est le cycle `add` -> `commit` que vous avez réussi.
+
+| Commande | Description |
+|---|---|
+| `git status` | **LA PLUS IMPORTANTE.** Montre l'état de vos fichiers (modifiés, préparés, etc.). |
+| `git add <fichier>` | Ajoute un fichier à la "zone de préparation" (staging area). |
+| `git add .` | Ajoute *tous* les fichiers modifiés/nouveaux à la zone de préparation. |
+| `git commit -m "Message"` | Crée un "snapshot" (commit) avec les fichiers préparés. |
+| `git commit --amend` | (Avancé) Modifie le *dernier* commit (message ou contenu). |
+
+---
+
+### 4. 🌿 Travailler avec les Branches
+
+| Commande | Description |
+|---|---|
+| `git branch` | Liste toutes les branches locales. |
+| `git checkout -b <nom-branche>` | **Crée** une nouvelle branche ET bascule dessus. (C'est le `-b` qui vous manquait au début). |
+| `git checkout <nom-branche>` | Bascule vers une branche *existante*. |
+| `git switch <nom-branche>` | (Moderne) Équivalent de `git checkout`. |
+| `git switch -c <nom-branche>` | (Moderne) Équivalent de `git checkout -b`. |
+| `git branch -d <nom-branche>` | Supprime une branche en local (vous l'avez fait avec `dev`). |
+
+---
+
+### 5. 📡 Collaborer & Synchroniser (Dépôt distant `origin`)
+
+| Commande | Description |
+|---|---|
+| `git push` | Envoie vos commits locaux vers le dépôt distant (`origin`). |
+| `git push --set-upstream origin <nom-branche>` | **(Pour la 1ère fois)** Lie votre branche locale à la branche distante et envoie. |
+| `git pull` | Récupère les changements distants et les fusionne dans votre branche. |
+| `git fetch` | Récupère les changements distants (sans les fusionner). |
+| `git fetch --prune` | (Utile) Fait un `fetch` et nettoie les branches locales qui n'existent plus sur le distant. |
+| `git push --delete origin <nom-branche>` | Supprime une branche sur le dépôt distant (vous l'avez fait avec `dev`). |
+
+---
+
+### 6. 🧐 Consulter l'Historique & Annuler
+
+| Commande | Description |
+|---|---|
+| `git log` | Affiche l'historique des commits. (C'est la commande qui ressemble à `ls`). |
+| `git log --oneline --graph --all` | (Recommandé) Affiche un historique compact et visuel. |
+| `git diff` | Montre les modifications non encore préparées (pas "add"). |
+| `git diff --staged` | Montre les modifications préparées (après "add", avant "commit"). |
+| `git restore <fichier>` | Annule les modifications sur un fichier (avant "add"). |
+| `git restore --staged <fichier>` | Retire un fichier de la zone de préparation (l'inverse de "add"). |

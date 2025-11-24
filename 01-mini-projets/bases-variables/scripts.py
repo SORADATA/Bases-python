@@ -1,7 +1,7 @@
 df = "   nom: POMME GOLDEN   prix_unit : 0.99 qte: 150   "
 print(f"Original: '{df}'")
 
-#### Etape 1 : Nettoyage et standardisation 
+# Etape 1 : Nettoyage et standardisation
 
 # La correction est ici : on sauvegarde le résultat de .strip()
 # puis on sauvegarde le résultat de .lower()
@@ -14,7 +14,7 @@ df_clean = df_clean.lower()
 print(f"Nettoyé : '{df_clean}'")
 
 
-#### Etape 2 : Extraction des données via l'indexation et le slicing 
+# Etape 2 : Extraction des données via l'indexation et le slicing 
 
 # 1. Trouver les positions :
 
@@ -32,14 +32,14 @@ print(f"Index qte: {start_qte}")
 # 2. Extraire les valeurs (Slicing) :
 
 # Pour nom : Debut = "nom:" (len 4) et Fin = start_prix
-nom_brut = df_clean[start_nom + 4 : start_prix]
+nom_brut = df_clean[start_nom + 4: start_prix]
 
 # Pour prix_unit : Debut = "prix_unit :" (len 11) et Fin = start_qte
 # (il faut compter 11, car il y a un espace avant le :)
-prix_brut = df_clean[start_prix + 11 : start_qte]
+prix_brut = df_clean[start_prix + 11: start_qte]
 
 # Pour qte: Debut = "qte:" (len 4) et Fin = jusqu'au bout
-qte_brut = df_clean[start_qte + 4 : ]
+qte_brut = df_clean[start_qte + 4:]
 
 # Affichage dynamique
 print("--- RESULTATS BRUTS ---")
