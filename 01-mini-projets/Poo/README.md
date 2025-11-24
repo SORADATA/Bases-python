@@ -8,12 +8,12 @@
 
 - Class compte : afin d'avoir deux attributs (titulaire et solde) , une méthode(affiche_solde) etc......
 
-Voici vos données de départ (une seule variable string) :
+Voici les données de départ  :
 
 ```python
   
 class Compte:
     """ Ma class Compte avec ses attributs et objets"""
-    def _init_(self, titulaire, solde):
+    def __init__(self, titulaire, solde):
         self.titulaire = titulaire
         self.solde = solde
