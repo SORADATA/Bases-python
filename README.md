@@ -10,11 +10,10 @@ Ce dépôt sert de journal de bord et de portfolio pour ma montée en compétenc
 
 
  Contenu de ma branche actuelle (HEAD)
- 
-## Extensions GitLab
+ Contenu de la branche que j'essaie d'intégrer (dev)
 
 ## Extensions GitLab ou git
- Contenu de la branche que j'essaie d'intégrer (dev)
+
 
 cd existing_repo
 
