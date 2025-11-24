@@ -10,7 +10,7 @@ Ce dépôt sert de journal de bord et de portfolio pour ma montée en compétenc
 
 
  Contenu de ma branche actuelle (HEAD)
-
+ 
 ## Extensions GitLab
 
 ## Extensions GitLab ou git
