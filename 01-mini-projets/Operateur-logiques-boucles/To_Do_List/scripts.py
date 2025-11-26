@@ -21,8 +21,7 @@ while True:
         else:
             print("\n----LISTE DES TÂCHES----")
             for index, tache in enumerate(taches, start=1):
-                print(f"{index}. {tache}")  # Utiliser f-string
-
+                print(f"{index}. {tache}")
     # Option supprimer (choix 3)
     elif choix == '3':
         if not taches:
@@ -33,8 +32,9 @@ while True:
         # Saisie sécurisée
         try:
             num_tache_sup = int(input("Entrez le numéro de la tâche à supprimer : "))
-            if 1 <= num_tache_sup <= len(taches):
-                tache_supprimee = taches.pop(num_tache_sup - 1)
+            
+            if 1 <= num_tache_sup <= len(taches): 
+                tache_supprimee = taches.pop(num_tache_sup - 1)   # Ajustement pour l'index de la liste (commence à 0)
                 print(f"La tâche '{tache_supprimee}' a été supprimée")
             else:
                 print("Le numéro entré est invalide")
