@@ -1,6 +1,6 @@
 # Initialisation et saisie utilisateur
 
-nbre_lignes = int(input("Merci d'entrer le nombre de lignes"))
+nbre_lignes = int(input("Entrer le nombre de lignes  " ))
 triangle = []# liste vide pour stocker toutes les lignes
 
 # Logique de génération (boucles imbriquées)
@@ -20,13 +20,13 @@ for lignes in range(nbre_lignes):
         ligne_precedente = triangle[-1] # Afin de recup la dernière ligne stockée dans triangle
         # Boucle pour calculer les éléments intérieurs
         # Elle itère de 1 jusqu'à l'avant-dernier élément de la ligne précédente
-        for elements in range(len(ligne_precedente), -1):
+        for elements in range(len(ligne_precedente)-1):
             """Boucle interne pour les calculs"""
             # La somme de l'élément courant et suivant dans la ligne précéd
             somme = ligne_precedente[elements] + ligne_precedente[elements+1] 
         #  Ajout cette somme à la ligne_actuelle en cours de construction. 
             ligne_actuelle.append(somme)
-    ligne_actuelle.append(1)# Car toutes les lignes de terminent à 1
+        ligne_actuelle.append(1)# Car toutes les lignes de terminent à 1
     triangle.append(ligne_actuelle) #Ajout de la ligne_actu complete à la liste triangle
 
 for ligne in triangle:
