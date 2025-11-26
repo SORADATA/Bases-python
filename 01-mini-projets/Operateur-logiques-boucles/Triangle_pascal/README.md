@@ -1,4 +1,4 @@
-# Projet : Le Triangle de Pascal
+# Projet : Le Triangle de Pascal ![alt text](triangle.png)
 
 ##  Mission  
 
