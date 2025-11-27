@@ -34,7 +34,12 @@ while True:
             num_tache_sup = int(input("Entrez le numéro de la tâche à supprimer : "))
             
             if 1 <= num_tache_sup <= len(taches): 
-                tache_supprimee = taches.pop(num_tache_sup - 1)   # Ajustement pour l'index de la liste (commence à 0)
+                """
+                1 <= num_tache_sup : Limite inférieeure : pas de nbre neg ou 0
+                num_tache_sup <= len(taches) : Limite supérieure , user ne doit pas entre un nbre sup à len (total élement dans tache)
+
+                """
+                tache_supprimee = taches.pop(num_tache_sup - 1)   # Puisqu'on a dit de start à 1 alorsque l'index noraml est 0
                 print(f"La tâche '{tache_supprimee}' a été supprimée")
             else:
                 print("Le numéro entré est invalide")
