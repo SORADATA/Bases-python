@@ -6,7 +6,7 @@
 
 > L'objectif est de créer une fonction pour gérer l'inventaire des livres, en utilisant la variable globale du prix de pénalité de retard. 
 
- Compétence demandée :  def , if/elif/else, dictionnaire  
+> **Compétence demandée** :  def , if/elif/else, dictionnaire  
 
 Voici les données de départ  :
 
@@ -24,5 +24,5 @@ def verifier_livre(titre_recherche, jours_retard=0 ):
     Ici 2 arguments (parametre):
      1. Argument obligatoire
      2. Argument optionnel
-     
+
     """
