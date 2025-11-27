@@ -7,7 +7,7 @@ ventes_mixeur = [200, 300, 100, 120, 130, 300]
 ventes_casserole = [123, 1400, 474, 700, 560, 300]
 
 toutes_les_ventes = [ventes_aspirateur, ventes_mixeur, ventes_casserole]
-resultats_analyse = {}# dict vide afin de stocker les résultats agrégés pour chaque produit
+resultats_analyse = {} # dict vide afin de stocker les résultats agrégés pour chaque produit
 
 # Boucle principale
 
@@ -48,9 +48,16 @@ for i,  prd in enumerate(produits):
       "Montant Max":  meilleure_vente_montant
     }
 
+    resultats_triers = sorted(
+        resultats_analyse.items(),
+        key=lambda item: item[1]['Total'], # Tri-moi en regardant la Valeur du Total
+        reverse=True  #Classe du grand au plus petit
+    )
+
+
 # Afiichage des results
 
-for produit, donnees in resultats_analyse.items():
+for produit, donnees in resultats_triers:
     print(f"\nproduit : **{produit}**")
     print(f" Ventes totales (6 mois) : {donnees['Total']} unités ")
     print(f" Meilleures mois de vente: {donnees["Meilleur mois"]} ({donnees["Montant Max"]} unités)")
