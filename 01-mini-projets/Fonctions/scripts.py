@@ -1,48 +1,48 @@
+from typing import List, Dict, Any
+
 # Variab globale
-prix_penalite_jour = 0.50
+# CORRECTION 1: Annotation de type correcte pour 'float'
+prix_penalite_jour: float = 0.50
 
-def verifier_livre(titre_recherche, jours_retard=0):
-    inventaire_bibliotheque = [
-       {"titre": "L'Étranger", "auteur": "Camus", "stock": 5, "annee": 1942},
-       {"titre": "1984", "auteur": "Orwell", "stock": 3, "annee": 1949},
-       {"titre": "Dune", "auteur": "Herbert", "stock": 0, "annee": 1965}
-    ]
-    """
-    Ici 2 arguments (parametre):
-     1. Argument obligatoire
-     2. Argument optionnel
+# Inventaire global
+inventaire_bibliotheque: List[Dict[str, Any]] = [
+    {"titre": "L'Étranger", "auteur": "Camus", "stock": 5, "annee": 1942},
+    {"titre": "1984", "auteur": "Orwell", "stock": 3, "annee": 1949},
+    {"titre": "Dune", "auteur": "Herbert", "stock": 0, "annee": 1965}
+]
 
-    """
-    # Ici commence la boucle intern
-    for livre in inventaire_bibliotheque:
+def verifier_livre(titre_recherche: str, inventaire: List[Dict[str, Any]]) -> str:
+
+    for livre in inventaire:
         if livre["titre"] == titre_recherche:
-            """
-            Si le titre_livre = titr recherché alors vérifie le stock (ci-dessous)
-
-            """
-
             if livre['stock'] > 0:
-                return f"le livre {livre["titre"]} est disponible en {livre["stock"]} exemplaires"
+                # Note : Les guillemets internes sont des doubles "" pour éviter une erreur
+                return f"Le livre {livre['titre']} est disponible en {livre['stock']} exemplaires"
             else:
-                """
-                Si la condit° du haut pas respecté : stock_livre == 0 alors
-                calcul la pena_totale et return que le divre est indispo
-                
-                """
-                penalite_totale = prix_penalite_jour * jours_retard
-                return (f"le livre {livre['titre']} est indisponible (rupture de stock)."
-                        f"la pénalité de {jours_retard} jours de retards est de {penalite_totale}€")             
-    return f"le livre {livre['titre']}, n'est pas dans l'inventaire.Merci de réessayer ! "
-# Tests 
-A = verifier_livre("L'Étranger", 10)
-B = verifier_livre("1984")
-C = verifier_livre("Dune", 5)
-print(A)
+                return (f"Le livre {livre['titre']} est indisponible (rupture de stock).")
 
-print()
+    # CORRECTION 2: Si la boucle se termine, utilisez titre_recherche (pas livre)
+    return f"Le livre **{titre_recherche}** n'est pas dans l'inventaire. Merci de réessayer ! "
 
-print(B)
+def montant_penalite(jours_retard: int) -> str:
+    penalite_totale: float = prix_penalite_jour * jours_retard
+    # Utiliser :.2f pour afficher deux décimales pour l'argent
+    return f"La pénalité pour {jours_retard} jours de retards est de {penalite_totale:.2f}€"
 
-print()
+# Tests corrigés
+print("--- Tests de vérification de livre ---")
+# CORRECTION 3: Appel correct avec l'inventaire
+A = verifier_livre("L'Étranger", inventaire_bibliotheque)
+B = verifier_livre("1984", inventaire_bibliotheque)
+C = verifier_livre("Dune", inventaire_bibliotheque)
+# Test de livre non trouvé
+E = verifier_livre("La Peste", inventaire_bibliotheque) 
 
-print(C)
+print(f"A (Disponible): {A}")
+print(f"B (Disponible): {B}")
+print(f"C (Indisponible): {C}")
+print(f"E (Non trouvé): {E}")
+
+print("\n--- Test de pénalité ---")
+D = montant_penalite(10)
+print(f"D (Pénalité pour 10j): {D}")
