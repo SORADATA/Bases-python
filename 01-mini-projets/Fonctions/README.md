@@ -14,11 +14,8 @@ Voici les données de départ  :
 
 # Variab globale 
 
-inventaire_bibliotheque = [
-    {"titre": "L'Étranger", "auteur": "Camus", "stock": 5, "annee": 1942},
-    {"titre": "1984", "auteur": "Orwell", "stock": 3, "annee": 1949},
-    {"titre": "Dune", "auteur": "Herbert", "stock": 0, "annee": 1965}
-]
+prix_penalite_jour = 0.50
+
 def verifier_livre(titre_recherche, jours_retard=0 ):
     """
     Ici 2 arguments (parametre):
@@ -26,3 +23,8 @@ def verifier_livre(titre_recherche, jours_retard=0 ):
      2. Argument optionnel
 
     """
+    inventaire_bibliotheque = [
+    {"titre": "L'Étranger", "auteur": "Camus", "stock": 5, "annee": 1942},
+    {"titre": "1984", "auteur": "Orwell", "stock": 3, "annee": 1949},
+    {"titre": "Dune", "auteur": "Herbert", "stock": 0, "annee": 1965}
+    ]
