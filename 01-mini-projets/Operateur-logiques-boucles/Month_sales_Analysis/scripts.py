@@ -60,8 +60,8 @@ for i,  prd in enumerate(produits):
 for produit, donnees in resultats_triers:
     print(f"\nproduit : **{produit}**")
     print(f" Ventes totales (6 mois) : {donnees['Total']} unités ")
-    print(f" Meilleures mois de vente: {donnees["Meilleur mois"]} ({donnees["Montant Max"]} unités)")
-
+    print(f" Meilleures mois de vente: {donnees['Meilleur mois']} ({donnees['Montant Max']} unités)")
+   
 
 
 
