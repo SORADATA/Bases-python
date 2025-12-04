@@ -12,17 +12,18 @@ class Fruits:
         self.nom = nom
         self.couleur = couleur
         self.poids = poids
-    def afficher_description(self):
-        return f"C'est un(e) {self.nom} de couleur {self.couleur} et pesant environ {self.poids}"
-    def manger(self):
+    def __str__(self):
+       return f"C'est un(e) {self.nom} de couleur {self.couleur} et pesant environ {self.poids}"
+    def __repr__(self):
         return f"Vous mangez le/la {self.nom} , Miam! "
 pomme = Fruits("pomme", "Rouge", 150)
 banane = Fruits("banane", "jaune", 100)
 mangue = Fruits("mangue", "orange", 90)
-print(pomme.manger())
-print(pomme.afficher_description())
+print(pomme.__repr__())
+print(pomme.__str__())
 
 print()
 
-print(banane.manger())
-print(banane.afficher_description())
+print(banane.__repr__())
+print(banane.__str__())
+
