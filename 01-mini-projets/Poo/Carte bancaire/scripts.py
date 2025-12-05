@@ -1,4 +1,6 @@
-from __future__ import annotations
+from __future__ import annotations 
+# Sert ici d'utiliser le nom de la classe elle-mm 
+#à l'intérieur de sa propre définition pour typer les args
 
 class Compte:
     """
@@ -32,6 +34,7 @@ class Compte:
     def transfert(self, destinataire: Compte, montant: float) -> None:
         """
         Une méthode transfert avec deux paramètres
+        destinataire: Compte sert à indiquer que l'argument destinataire doit être une autr instance de la classe Compte
 
         """
         if self.solde >= montant:
@@ -54,13 +57,13 @@ print("\n--- Dépôt, Retrait et Affichage ---")
 client1.depot(1000)
 print(client1) # Affiche le nouveau solde
 
-client1.retrait(10000) # Test refusé
+client1.retrait(10000)
 print(client1)
 
 client2.retrait(100)
 print(client2)
 
-print("\n--- Test de Surcharge d'Opérateur  ---")
+print("\n--- Test Operation globale ---")
 solde_total = client1 + client2
 print(f"Solde total du ménage (client1 + client2) : {solde_total:.2f} €")
 
@@ -71,4 +74,4 @@ print(client1)
 print(client2)
 
 print("\n--- Test de Transfert Refusé ---")
-client2.transfert(client1, 10000) # Test refusé
+client2.transfert(client1, 10000)
