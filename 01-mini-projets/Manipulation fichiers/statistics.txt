@@ -1,0 +1,2 @@
+La moyenne de notes est de : 9.0
+L'ecart-type de notes est de : 5.94306318324145
