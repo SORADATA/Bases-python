@@ -10,11 +10,35 @@ with open("notes.txt", "r") as file_in:
 
     """
 
-    notes = file_in.read() # lit tout le contenu du fichier
-notes = notes.split() # elle sépare la chaîne à chaque espace et crée une liste de chaînes de caractères.
+    notes_brutes = file_in.read() # lit tout le contenu du fichier
+notes_str = notes_brutes.split() # elle sépare la chaîne à chaque espace et crée une liste de chaînes de caractères.
 notes_num = []
-for n in notes:
+for n in notes_str:
     notes_num.append(int(n))
-print(f"La moyenne de notes est de : {np.mean(notes_num)}")
-print(f"L'ecart-type de notes est de : {np.std(notes_num)}")
-        
+
+moyenne = np.mean(notes_num)
+ecart_type = np.std(notes_num)
+
+print(f"La moyenne de notes est de : {moyenne}")
+print(f"L'ecart-type de notes est de : {ecart_type}")
+
+# ---------------------------------------------------------
+# Sauvegarde des notes propres dans le fichier clean_notes.txt
+# ---------------------------------------------------------- 
+
+notes_clean_str = "\n".join(map(str, notes_num))
+with open("clean_notes.txt", 'w') as file_out:
+    file_out.write(notes_clean_str + "\n")
+
+
+# ---------------------------------------------------------
+# Sauvegarde des outputs dans le fichier statistics.txt
+# ----------------------------------------------------------   
+
+ligne_moyenne = f"La moyenne de notes est de : {moyenne}\n"
+ligne_ecart_type = f"L'ecart-type de notes est de : {ecart_type}\n"
+
+# on ouvre le fichier clean_notes
+with open("statistics.txt", 'w') as file_out:
+    file_out.write(ligne_moyenne)
+    file_out.write(ligne_ecart_type)
