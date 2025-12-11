@@ -1,9 +1,0 @@
-file = open("students.txt", "w+")
-
-file.write("Paul")
-
-file.write("Edouard")
-
-file.write("Elodie")
-
-file.close()
