@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd # ON MET l'alias pd afin de faciliter les futures appels aux objets et autres..
 import numpy as np
 import csv
 
@@ -66,5 +66,59 @@ print(df[df["experiment"].isin(["train", "validation"])])
 # Explorer des données tabulaires
 
 # importer et exporter des données
-rows = []
-with open
+
+
+
+
+#--------------------------------------------- Plusieures façons de créer de Dataframe-----------------------------------------
+
+data_list1 = [
+    ['Carrefour', 'Casino', 'Lidl', 'Carrefour', 'Casino', 'Lidl'],
+    ['01.1.1', '02.1.1', '01.1.1', '03.1.1', '01.1.1', '02.1.1'],
+    [3, 2, 7, 5, 10, 1],
+    [1.50, 2.30, 0.99, 5.00, 1.20, 3.10]
+]
+
+data_list2 = [
+    ['Carrefour', '01.1.1', 3, 1.50],
+    ['Casino', '02.1.1', 2, 2.30],
+    ['Lidl', '01.1.1', 7, 0.99],
+    ['Carrefour', '03.1.1', 5, 5.00],
+    ['Casino', '01.1.1', 10, 1.20],
+    ['Lidl', '02.1.1', 1, 3.10]
+]
+
+# Si les données sont sous forme de colonnes : à partir d'un dictionnaire
+data_dict = {
+    'enseigne': data_list1[0],
+    'produit': data_list1[1],
+    'quantite': data_list1[2],
+    'prix': data_list1[3]
+}
+
+df_from_dict = pd.DataFrame(data_dict)
+print(df_from_dict)
+# Si les données sont sous forme de lignes : à partir d'une liste de listes
+columns = ['enseigne', 'produit', 'quantite', 'prix']
+df_from_list = pd.DataFrame(data_list2, columns=columns)
+print(df_from_list)
+# Vérification
+df_from_dict.equals(df_from_list)
+
+
+
+data = {
+    'enseigne': ['Carrefour', 'Casino', 'Lidl', 'Carrefour', 'Casino', 'Lidl'],
+    'produit': ['01.1.1', '02.1.1', '01.1.1', '03.1.1', '01.1.1', '02.1.1'],
+    'quantite': [3, 2, 7, 5, 10, 1],
+    'prix': [1.50, 2.30, 0.99, 5.00, 1.20, 3.10],
+    'date_heure': pd.to_datetime(["2022-01-01 14:05", "2022-01-02 09:30", 
+                                  "2022-01-03 17:45", "2022-01-04 08:20", 
+                                  "2022-01-05 19:00", "2022-01-06 16:30"])
+}
+
+df = pd.DataFrame(data)
+# loc 
+print(df.iloc[0])
+print()
+print(df.loc[:, 'prix'])
