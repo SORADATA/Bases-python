@@ -122,3 +122,8 @@ df = pd.DataFrame(data)
 print(df.iloc[0])
 print()
 print(df.loc[:, 'prix'])
+
+df = df.set_index("prix")
+
+print(df)
+
