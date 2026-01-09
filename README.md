@@ -32,11 +32,11 @@ Ce dépôt constitue mon **portfolio d'apprentissage** dans le cadre de mon alte
 ## 📂 Structure du Projet
 
 ```
-git_skills/
-├── scripts/              # Scripts Python utilitaires
-├── exercices/            # Exercices de formation
-├── mini-projets/         # Projets complets (POC, analyses)
-├── notes/                # Prise de notes et synthèses
+Bases-python/
+├── 01.mini-projet/
+├── 02.exercices/          # Exercices de formation
+├── 03.projets finaux/       # Projets complets (POC, analyses)
+├── tests/                # Prise de notes et synthèses
 └── README.md             # Ce fichier
 ```
 
@@ -48,8 +48,8 @@ git_skills/
 
 ```bash
 # Cloner le dépôt
-git clone https://forge.dgfip.finances.rie.gouv.fr/mousslab/git_skills.git
-cd git_skills
+git clone https://github.com/SORADATA/Bases-python/.git
+cd Bases-python
 
 # Configurer Git (première fois)
 git config --global user.name "Votre Nom"
@@ -303,10 +303,10 @@ Code de la branche à fusionner
 - [x] Commits et messages conventionnels
 - [x] Push/Pull vers dépôt distant
 - [x] Suppression de branches locales et distantes
-- [ ] Résolution de conflits de merge
-- [ ] Rebase interactif
-- [ ] Git hooks et automatisation
-- [ ] Gestion avancée des tags et releases
+- [x] Résolution de conflits de merge
+- [x] Rebase interactif
+- [x] Git hooks et automatisation
+- [x] Gestion avancée des tags et releases
 
 ---
 
@@ -316,6 +316,7 @@ Code de la branche à fusionner
 - [Git Documentation](https://git-scm.com/doc)
 - [Pro Git Book (gratuit)](https://git-scm.com/book/fr/v2)
 - [GitHub Guides](https://guides.github.com/)
+- [Conventionnal Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#types)
 
 ### Tutoriels interactifs
 - [Learn Git Branching](https://learngitbranching.js.org/?locale=fr_FR)
