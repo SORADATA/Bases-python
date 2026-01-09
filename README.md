@@ -306,7 +306,7 @@ Code de la branche à fusionner
 - [x] Résolution de conflits de merge
 - [x] Rebase interactif
 - [x] Git hooks et automatisation
-- [x] Gestion avancée des tags et releases
+- [ ] Gestion avancée des tags et releases
 
 ---
 
