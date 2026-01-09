@@ -297,15 +297,15 @@ Code de la branche à fusionner
 ## 📊 Progression & Jalons
 
 ### Compétences acquises
-- [x] **Configuration de Git**
-- [x] **Création et gestion de branches**
-- [x] **Commits et messages conventionnels**
-- [x] **Push/Pull vers dépôt distant**
-- [x] **Suppression de branches locales et distantes**
-- [x] **Résolution de conflits de merge**
-- [x] **Rebase interactif**
-- [x] **Git hooks et automatisation**
-- [x] **Gestion avancée des tags et releases**
+- ✅**Configuration de Git**
+- ✅ **Création et gestion de branches**
+- ✅ **Commits et messages conventionnels**
+- ✅ **Push/Pull vers dépôt distant**
+- ✅ **Suppression de branches locales et distantes**
+- ✅ **Résolution de conflits de merge**
+- ✅ **Rebase interactif**
+- ✅ **Git hooks et automatisation**
+- ✅ **Gestion avancée des tags et releases**
 
 ---
 
