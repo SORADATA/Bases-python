@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 Git Skills Portfolio
+# 🎓 Git Skills and python Portfolio
 
 **Mon journal de bord pour la maîtrise de Git & Python**
 
