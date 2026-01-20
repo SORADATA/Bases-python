@@ -86,22 +86,25 @@ Prediction_meteo/
 ├── 📄 main.ipynb        # 🧠 Notebook principal (Pipeline ETL)
 ├── 📄 README.md         # 📖 Documentation
 └── 📄 .gitignore        # 🛡️ Exclusion des fichiers temporaires
+```
 
-🚀 Installation & Usage
+## 🚀 Installation & Usage
 1. Pré-requis
 Cloner le projet et installer les dépendances nécessaires via le terminal :
-
+```text
 Bash
 git clone https://github.com/votre-pseudo/Prediction_meteo.git
 cd Prediction_meteo
 pip install pandas seaborn matplotlib requests
+```
 2. Lancer une analyse
 Ouvrez le notebook main.ipynb ou exécutez le script principal en Python :
-
+```text
 Python
 from main import main
-
+```
 # Exemple 1 : Analyse fine heure par heure à Montrouge
+```text
 main("France", "Montrouge", agg_var="hour")
 
 # Exemple 2 : Tendance globale à Marseille
