@@ -1,80 +1,108 @@
-# 💇‍♀️ Projet : Prédictions Météo & "Bad Hair Index"
+# 💇‍♀️ Bad Hair Index Predictor
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-green)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 > **Rôle :** Analytics Engineer / Data Scientist  
-> **Mission :** Construire un pipeline de données pour prédire les pires moments pour sortir, en se basant sur un indice capillaire (le *Bad Hair Index*).
+> **Mission :** Concevoir un pipeline ETL pour anticiper les conditions météorologiques défavorables à la coiffure via un indicateur composite : le *Bad Hair Index*.
 
 ---
 
-## 📊 Aperçu des Résultats
+## 📑 Table des matières
+1. [Contexte et Objectifs](#-contexte-et-objectifs)
+2. [Méthodologie](#-méthodologie--le-calcul-du-bad-hair-index)
+3. [Analyses & Insights](#-analyses--insights)
+4. [Stack Technique](#-stack-technique)
+5. [Structure du Projet](#-structure-du-projet)
+6. [Installation & Usage](#-installation--usage)
 
-L'objectif était de répondre à une question cruciale : **Quand rester chez soi pour sauver sa coiffure ?**
+---
 
-### 1. Analyse Heure par Heure : Le cycle d'une journée type
-*Ce graphique permet d'identifier les créneaux horaires à risque.*
+## 🎯 Contexte et Objectifs
+
+L'objectif de ce projet est de transformer des données météorologiques brutes en une information actionnable pour le quotidien. Nous cherchons à répondre à la question : **Quand faut-il rester chez soi pour sauver sa coiffure ?**
+
+Le script automatise :
+* La récupération des coordonnées géographiques d'une ville (Géocodage).
+* L'extraction des prévisions météo (Vent & Humidité).
+* Le calcul d'un index de risque et sa visualisation.
+
+---
+
+## 🧪 Méthodologie : Le calcul du "Bad Hair Index"
+
+L'indice est calculé selon une formule pondérée qui combine l'impact de l'humidité relative (frisottis) et de la force du vent (décoiffage) :
+
+$$Bad\ Hair\ Index = Humidité\ Relative (\%) \times Vitesse\ du\ Vent (km/h)$$
+
+> **Interprétation :**
+> * **Index Faible (< 400) :** Conditions idéales.
+> * **Index Élevé (> 700) :** Risque critique "Bad Hair Day".
+
+---
+
+## 📊 Analyses & Insights
+
+Voici les résultats générés par le pipeline pour la semaine à venir.
+
+### 1. Analyse Heure par Heure (Cycle Diurne)
+*Identification des créneaux horaires critiques.*
 
 ![Analyse par Heure](outputs/hour.png)
-*(Assurez-vous que votre image s'appelle bien `hour.png` dans le dossier outputs)*
 
-**🧐 Mon interprétation de Data Analyst :**
-En analysant la courbe ci-dessus, on observe une tendance claire :
-* **🔴 Zone Rouge (08h00 - 09h00) :** C'est le pic de risque (Index > 730). Le mélange d'humidité matinale et de vent rend ce créneau critique. *Conseil : Portez un bonnet pour aller au travail.*
-* **🟢 Zone Verte (13h00) :** C'est le moment idéal (Index ~610). L'humidité chute souvent à la mi-journée, rendant l'air plus sec et plus clément pour les cheveux.
-* **📈 Soirée :** Le risque remonte progressivement après 18h.
+**🧐 L'analyse du Data Analyst :**
+* **🔴 Zone Rouge (08h00 - 09h00) :** Pic de risque (Index > 730). La combinaison de l'humidité matinale et du vent crée les pires conditions. *Action : Couvre-chef recommandé.*
+* **🟢 Zone Verte (13h00 - 15h00) :** Creux favorable (Index ~610). La hausse des températures fait chuter l'humidité relative.
+* **📈 Tendance Soirée :** Remontée progressive du risque après 18h00.
 
-### 2. Analyse Jour par Jour : Planifier sa semaine
-*Ce graphique permet de repérer le jour le plus hostile de la semaine.*
+### 2. Analyse Jour par Jour (Tendance Hebdomadaire)
+*Planification de la semaine.*
 
 ![Analyse par Jour](outputs/day.png)
-*(Assurez-vous que votre image s'appelle bien `day.png` dans le dossier outputs)*
 
 ---
 
-## ⚙️ La Stack Technique
+## ⚙️ Stack Technique
 
-Ce projet met en œuvre un pipeline **ETL** (Extract, Transform, Load) complet en Python.
+Ce projet met en œuvre un pipeline **ETL** (Extract, Transform, Load) modulaire.
 
-| Étape | Technologie | Description |
+| Domaine | Outil | Usage |
 | :--- | :--- | :--- |
-| **Extraction** | `Requests` | Appel de deux APIs : **Nominatim** (Géocodage) et **Open-Meteo** (Prévisions). |
-| **Transformation** | `Pandas` | Nettoyage des JSON, conversion temporelle (`datetime`) et Feature Engineering (Calcul de l'index). |
-| **Visualisation** | `Seaborn` | Création de graphiques statistiques pour l'analyse. |
-| **Automatisation** | `OS` | Gestion automatique des dossiers de sauvegarde. |
+| **Extraction** | `Requests` | Appels API REST (**Nominatim** & **Open-Meteo**). |
+| **Transformation** | `Pandas` | Cleaning, Typage (`datetime`), Feature Engineering. |
+| **Visualisation** | `Seaborn` | Graphiques statistiques (Lineplots). |
+| **Système** | `OS` | Gestion automatisée des fichiers de sortie. |
 
 ---
 
 ## 📐 Structure du Projet
 
-Le projet est organisé de manière professionnelle pour séparer le code, les tests et les résultats.
-
 ```text
-03-projets_finaux/Prediction_meteo/
-├── 📂 outputs/          # Stockage automatique des graphiques générés
-│   ├── day.png          # Graphique journalier
-│   └── hour.png         # Graphique horaire
-├── 📄 main.ipynb        # Le Notebook contenant tout le pipeline logique
-├── 📄 README.md         # La documentation (vous êtes ici)
-└── 📄 .gitignore        # Fichiers à ignorer par Git
+Prediction_meteo/
+├── 📂 outputs/          # 📸 Artefacts générés (Graphiques PNG)
+│   ├── day.png
+│   └── hour.png
+├── 📄 main.ipynb        # 🧠 Notebook principal (Pipeline ETL)
+├── 📄 README.md         # 📖 Documentation
+└── 📄 .gitignore        # 🛡️ Exclusion des fichiers temporaires
 
-## 🧪 Méthodologie : Le calcul du "Bad Hair Index"
+🚀 Installation & Usage
+1. Pré-requis
+Cloner le projet et installer les dépendances nécessaires via le terminal :
 
-L'indice est calculé selon une formule personnalisée qui pondère l'impact de l'humidité relative et de la vitesse du vent :
+Bash
+git clone https://github.com/votre-pseudo/Prediction_meteo.git
+cd Prediction_meteo
+pip install pandas seaborn matplotlib requests
+2. Lancer une analyse
+Ouvrez le notebook main.ipynb ou exécutez le script principal en Python :
 
-$$Bad\ Hair\ Index = Humidité\ Relative (\%) \times Vitesse\ du\ Vent (km/h)$$
-
-> **Interprétation :** Plus l'indice est élevé, plus la probabilité d'avoir une "mauvaise coiffure" (frisottis, décoiffage) est forte.
-
-
-## 🚀 Comment lancer le projet ?
-
-1. **Cloner le projet** ou télécharger le notebook.
-2. **Installer les dépendances** via le terminal :
-   ```bash
-   pip install pandas seaborn matplotlib requests
-
-3.Exécuter le pipeline dans le notebook main.ipynb :
-
-```python
+Python
 from main import main
 
-# Lancer l'analyse pour n'importe quelle ville
+# Exemple 1 : Analyse fine heure par heure à Montrouge
 main("France", "Montrouge", agg_var="hour")
+
+# Exemple 2 : Tendance globale à Marseille
+main("France", "Marseille", agg_var="day")
