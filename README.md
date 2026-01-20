@@ -376,7 +376,7 @@ Ce projet est à usage éducatif dans le cadre de mon alternance.
 
 <div align="center">
 
-**Développé avec 💙 dans le cadre de mon alternance Data**
+**Développé avec 💙 dans le cadre de mon alternance Analytics Engineer**
 
 *Dernière mise à jour : Janvier 2025*
 
