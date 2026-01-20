@@ -106,6 +106,7 @@ from main import main
 # Exemple 1 : Analyse fine heure par heure à Montrouge
 ```text
 main("France", "Montrouge", agg_var="hour")
-
+```
 # Exemple 2 : Tendance globale à Marseille
+```text
 main("France", "Marseille", agg_var="day")
