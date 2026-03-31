@@ -67,6 +67,8 @@ x="Boileau a dit : \n"
 y1="\t Hâtez-vous lentement, et sans perdre courage, \n"
 y2="\t Vingt fois sur le métier remetez votre ouvrage :\n"
 y3="\t Polissez-le sans cesse et le repolissez ! \n"
+# \n → saut de ligne
+# \t → tabulation (indentation)
 print(x, y1, y2, y3)
 
 
