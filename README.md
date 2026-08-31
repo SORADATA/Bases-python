@@ -1,11 +1,11 @@
 <div align="center">
 
-# 🎓 Git Skills and python Portfolio
+# 🎓 Git Skills and Python Portfolio
 
 **Mon journal de bord pour la maîtrise de Git & Python**
 
-[![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)](https://git-scm.com/)
-[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Git](https://img.shields.io/badge/Git-F05032?logo=git\&logoColor=white)](https://git-scm.com/)
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python\&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Learning-blue.svg)]()
 
 *Alternance en Data | Progression continue*
@@ -20,27 +20,24 @@ Ce dépôt constitue mon **portfolio d'apprentissage** dans le cadre de mon alte
 
 ### 🎯 Objectifs
 
-| Objectif | Description | Statut |
-|----------|-------------|--------|
-| **📚 Centraliser** | Rassembler scripts, exercices et mini-projets réalisés | 🟢 Terminé|
-| **🔧 Pratiquer Git** | Maîtriser branches, merge requests, résolution de conflits | 🟢 Terminé|
-| **🐍 Développer en Python** | Améliorer mes compétences en programmation data | 🟢 Terminé|
-
+| Objectif                    | Description                                                       | Statut     |
+| --------------------------- | ----------------------------------------------------------------- | ---------- |
+| **📚 Centraliser**          | Rassembler scripts, DAGs et modèles de données                    | 🟢 Terminé |
+| **🔧 Pratiquer Git**        | Maîtriser branches, rebase, cherry-pick et résolution de conflits | 🟢 Terminé |
+| **🐍 Développer en Python** | Améliorer mes compétences en ingénierie de données                | 🟢 Terminé |
 
 ---
 
 ## 📂 Structure du Projet
 
-```
+```text
 Bases-python/
 ├── 01.mini-projet/
-├── 02.exercices/          # Exercices de formation
-├── 03.projets finaux/       # Projets complets (POC, analyses)
-├── tests/                # Prise de notes et synthèses
-└── README.md             # Ce fichier
+├── 02.exercices/          # Scripts ETL/ELT
+├── 03.projets finaux/     # Pipelines complets, modèles dbt, DAGs Airflow
+├── tests/                 # Tests unitaires et requêtes de validation
+└── README.md              # Ce fichier
 ```
-
----
 
 ## 🚀 Quick Start
 
@@ -48,7 +45,7 @@ Bases-python/
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/SORADATA/Bases-python/.git
+git clone https://github.com/SORADATA/Bases-python.git
 cd Bases-python
 
 # Configurer Git (première fois)
@@ -63,323 +60,154 @@ git config --global init.defaultBranch main
 # 1. Vérifier l'état
 git status
 
-# 2. Créer une branche pour une nouvelle fonctionnalité
-git checkout -b feat/ma-nouvelle-feature
+# 2. Créer une branche pour un nouveau modèle ou pipeline
+git checkout -b feat/stg-nouveau-modele
 
 # 3. Faire des modifications, puis...
 git add .
-git commit -m "feat: ajout de la fonctionnalité X"
+git commit -m "feat: ajout du staging pour les données d'activité"
 
 # 4. Pousser vers le dépôt distant
-git push --set-upstream origin feat/ma-nouvelle-feature
+git push --set-upstream origin feat/stg-nouveau-modele
 ```
 
 ---
 
 ## 📚 Conventions de Commits
 
-Ce projet suit les **conventions de commits sémantiques** pour un historique clair et exploitable.
-
-### Format
-
-```
-<type>: <emoji> <description courte>
-
-[corps optionnel détaillant les changements]
-
-[footer optionnel avec références]
-```
+Ce projet suit les **conventions de commits sémantiques** pour un historique clair, indispensable pour les déploiements automatisés.
 
 ### Types de commits
 
-| Préfixe | Emoji | Signification | Exemple |
-|---------|-------|---------------|---------|
-| `feat` | ✨ | **Fonctionnalité** - Ajoute une nouvelle fonctionnalité | `feat: ✨ ajout du module d'analyse de données` |
-| `fix` | 🐛 | **Correction** - Corrige un bug | `fix: 🐛 correction du calcul de moyenne` |
-| `refactor` | ♻️ | **Refactoring** - Améliore le code sans changer le comportement | `refactor: ♻️ simplification de la logique de filtrage` |
-| `perf` | ⚡ | **Performance** - Améliore les performances | `perf: ⚡ optimisation des requêtes SQL` |
-| `style` | 💄 | **Style** - Formatage, indentation, conventions | `style: 💄 application de Black sur tous les fichiers` |
-| `test` | ✅ | **Tests** - Ajout ou modification de tests | `test: ✅ ajout de tests unitaires pour le module X` |
-| `docs` | 📝 | **Documentation** - README, commentaires, docstrings | `docs: 📝 amélioration de la documentation API` |
-| `build` | 📦 | **Build** - Dépendances, configuration CI/CD | `build: 📦 mise à jour de requirements.txt` |
-| `ops` | 🔧 | **Opérations** - Infrastructure, déploiement | `ops: 🔧 configuration du pipeline CI` |
-| `chore` | 🧹 | **Maintenance** - Tâches diverses (.gitignore, scripts) | `chore: 🧹 nettoyage des fichiers temporaires` |
-
-### Exemples concrets
-
-```bash
-# Bonne pratique
-git commit -m "feat: ✨ ajout du script de nettoyage CSV"
-git commit -m "fix: 🐛 correction du parsing de dates dans le module ETL"
-git commit -m "docs: 📝 documentation de la fonction calculate_metrics()"
-
-# À éviter
-git commit -m "modifs"
-git commit -m "test"
-git commit -m "corrections diverses"
-```
+| **Préfixe** | **Emoji** | **Signification**                                  | **Exemple**                                               |
+| ----------- | --------- | -------------------------------------------------- | --------------------------------------------------------- |
+| `feat`      | ✨         | **Fonctionnalité** - Nouveau modèle ou DAG         | `feat: ✨ ajout du DAG d'orchestration`                    |
+| `fix`       | 🐛        | **Correction** - Bug SQL ou Python                 | `fix: 🐛 correction de la jointure sur l'id_projet`       |
+| `refactor`  | ♻️        | **Refactoring** - Optimisation de code             | `refactor: ♻️ optimisation de la macro dbt`               |
+| `perf`      | ⚡         | **Performance** - Amélioration des temps de calcul | `perf: ⚡ ajout d'un partitionnement sur import_timestamp` |
+| `style`     | 💄        | **Style** - Formatage (Flake8, SQLFluff)           | `style: 💄 formatage SQL du modèle de reporting`          |
+| `test`      | ✅         | **Tests** - Ajout de tests dbt ou Pytest           | `test: ✅ ajout de tests not_null sur la clé primaire`     |
+| `docs`      | 📝        | **Documentation** - README, YAML dbt               | `docs: 📝 ajout des descriptions de colonnes`             |
+| `build`     | 📦        | **Build** - Dépendances                            | `build: 📦 mise à jour de dbt-core`                       |
+| `ops`       | 🔧        | **Opérations** - CI/CD, Docker                     | `ops: 🔧 maj du workflow GitHub Actions`                  |
+| `chore`     | 🧹        | **Maintenance** - Tâches mineures                  | `chore: 🧹 nettoyage des logs locaux`                     |
 
 ---
 
-## 🛠️ Commandes Git Essentielles
+## 🛠️ Commandes Git Essentielles pour l'Analytics Engineer
 
-### 1. 🔧 Configuration (Une seule fois)
-
-```bash
-git config --global user.name "Votre Nom"
-git config --global user.email "votre.email@example.com"
-git config --global init.defaultBranch main
-git config --global core.editor "code --wait"  # Utilise VS Code comme éditeur
-```
-
----
-
-### 2. 🚀 Démarrer un Projet
-
-```bash
-git init                        # Initialise un nouveau dépôt
-git clone <url_du_depot>        # Clone un projet existant
-```
-
----
-
-### 3. 💻 Le Workflow Quotidien
+### 1. 💻 Le Workflow Quotidien
 
 **Le cycle Add → Commit → Push**
 
 ```bash
 git status                      # ⭐ LA COMMANDE LA PLUS IMPORTANTE
-git add <fichier>               # Ajoute un fichier spécifique
-git add .                       # Ajoute tous les fichiers modifiés
+git add models/mon_modele.sql   # Ajoute un fichier spécifique
+git add -p                      # Ajoute interactivement (bout par bout)
 git commit -m "type: message"   # Crée un commit avec message
-git commit --amend              # Modifie le dernier commit
+git commit --amend -m "nouveau" # Modifie le dernier commit (message ou fichiers oubliés)
 git push                        # Envoie vers le dépôt distant
 ```
 
-**Astuce :** Toujours faire `git status` avant et après chaque commande !
-
----
-
-### 4. 🌿 Gestion des Branches
+### 2. 🌿 Gestion des Branches & Changement de Contexte (Stash)
 
 ```bash
-# Lister et naviguer
-git branch                           # Liste les branches locales
-git branch -a                        # Liste toutes les branches (locales + distantes)
-git checkout <nom-branche>           # Bascule vers une branche existante
-git switch <nom-branche>             # (Moderne) Équivalent de checkout
+# Mettre de côté son travail en cours
+git stash                       # Sauvegarde les modifs non commitées
+git stash list                  # Liste les sauvegardes en attente
+git stash pop                   # Applique et supprime la dernière sauvegarde
+git stash apply                 # Applique sans supprimer la sauvegarde
+git stash drop                  # Supprime une sauvegarde spécifique
 
-# Créer et supprimer
-git checkout -b <nom-branche>        # Crée ET bascule vers une nouvelle branche
-git switch -c <nom-branche>          # (Moderne) Équivalent
-git branch -d <nom-branche>          # Supprime une branche en local
-git push --delete origin <branche>   # Supprime une branche distante
+# Créer et naviguer
+git switch -c <nom-branche>         # (Moderne) Crée et bascule
+git push origin --delete <branche>  # Supprime une branche distante
 ```
 
-**Convention de nommage des branches :**
-```
-feat/nom-feature          # Nouvelle fonctionnalité
-fix/nom-bug              # Correction de bug
-refactor/nom-refacto     # Refactoring
-docs/nom-doc             # Documentation
-test/nom-test            # Tests
-```
-
----
-
-### 5. 📡 Synchronisation avec le Dépôt Distant
+### 3. 🔀 Intégration Continue : Merge vs Rebase
 
 ```bash
-# Récupérer les changements
-git fetch                                # Récupère sans fusionner
-git fetch --prune                        # Nettoie les branches obsolètes
-git pull                                 # Récupère ET fusionne
+# Le Rebase (Réécrire l'historique pour l'aligner sur main)
+git fetch origin
+git rebase origin/main          # Place tes commits au-dessus de main
+git rebase -i HEAD~3             # Rebase interactif : fusionner (squash) ou modifier les 3 derniers commits
 
-# Envoyer les changements
-git push                                 # Envoie vers origin
-git push --set-upstream origin <branche> # Première fois (lie la branche)
-git push -u origin <branche>             # Raccourci de la commande précédente
-git push --force                         # ⚠️ À utiliser avec précaution !
+# Le Merge classique
+git merge main                  # Fusionne main dans ta branche
 ```
 
----
-
-### 6. 🔍 Consulter l'Historique
+### 4. 🚑 Débogage et Secours (Les commandes "Sauve-moi")
 
 ```bash
-# Affichage standard
-git log                              # Historique complet
-git log --oneline                    # Historique compact (1 ligne/commit)
-git log --graph --all --oneline      # ⭐ Visualisation graphique recommandée
-git log --author="Votre Nom"         # Filtrer par auteur
+# Qui a écrit cette ligne de code (et quand) ?
+git blame models/core/mon_modele.sql
 
-# Comparer les versions
-git diff                             # Changements non stagés
-git diff --staged                    # Changements stagés (après add)
-git diff <branche1> <branche2>       # Compare deux branches
+# Trouver quel commit précis a introduit un bug (recherche binaire)
+git bisect start
+git bisect bad                  # Le code actuel est cassé
+git bisect good <commit-hash>   # Ce vieux commit fonctionnait
+# Git va tester les commits un par un pour trouver l'erreur
+
+# Récupérer un commit spécifique (hotfix) depuis une autre branche
+git cherry-pick <commit-hash>
+
+# La machine à voyager dans le temps (historique de TOUTES tes actions)
+git reflog
+git reset --hard HEAD@{2}       # Annule une erreur de rebase ou de reset !
 ```
 
-**Alias recommandé :**
+### 5. 🏷️ Gestion des Versions (Tags)
+
 ```bash
-git config --global alias.lg "log --oneline --graph --all --decorate"
-# Utilisation : git lg
+git tag -a v1.0.0 -m "Release initiale du data warehouse"
+git push origin v1.0.0          # Pousse un tag spécifique
+git push origin --tags          # Pousse tous les tags locaux
 ```
 
----
-
-### 7. ↩️ Annuler des Modifications
+### 6. ↩️ Annuler des Modifications
 
 ```bash
-# Avant le commit
 git restore <fichier>                # Annule les modifications (avant add)
 git restore --staged <fichier>       # Retire de la staging area (après add)
-git reset HEAD <fichier>             # Équivalent ancien de restore --staged
-
-# Après le commit
 git reset --soft HEAD~1              # Annule le dernier commit (garde les modifs)
 git reset --hard HEAD~1              # ⚠️ Annule ET supprime les modifications
-git revert <commit-hash>             # Crée un nouveau commit qui annule un ancien
+git revert <commit-hash>             # Crée un nouveau commit qui annule un ancien (sûr pour le travail partagé)
 ```
-
-⚠️ **Attention :** `--hard` supprime définitivement les modifications !
 
 ---
 
-### 8. 🔀 Fusion et Résolution de Conflits
+## 🎯 Bonnes Pratiques de l'Analytics Engineer
+
+* ✅ **Tester avant de commit** (ex: `dbt build` ou run local d'Airflow).
+* ✅ **Squasher ses commits** via rebase interactif avant de merger une grosse PR pour garder l'historique propre.
+* ✅ **Utiliser `.gitignore`** pour exclure `dbt_packages/`, `logs/`, `target/` et les credentials `.env`.
+* ❌ **Ne jamais utiliser `git push --force` sur `main`** (utiliser `--force-with-lease` sur ses propres branches après un rebase).
+* ❌ **Ne jamais commiter de données brutes (`.csv`, `.parquet`)** ou de secrets (fichiers `profiles.yml`).
+
+---
+
+## 📝 Notes Personnelles : Résolution d'Erreurs Fréquentes
+
+### Problème 1 : Conflit lors d'un rebase (`CONFLICT (content)`)
 
 ```bash
-# Fusionner une branche
-git merge <branche-source>           # Fusionne branche-source dans la branche courante
-git merge --no-ff <branche>          # Force un commit de merge
+# Solution : Résoudre manuellement dans l'éditeur, puis :
+git add fichier_resolu.py
+git rebase --continue
 
-# En cas de conflit
-git status                           # Voir les fichiers en conflit
-# Éditer manuellement les fichiers marqués
-git add <fichiers-résolus>
-git commit -m "fix: résolution des conflits"
-
-# Annuler un merge en cours
-git merge --abort
+# (Ne PAS faire git commit pendant un rebase)
 ```
 
-**Résolution de conflits :**
-```
-<<<<<<< HEAD (votre branche)
-Votre code
-=======
-Code de la branche à fusionner
->>>>>>> nom-de-la-branche
-```
+### Problème 2 : J'ai commité sur la mauvaise branche (main au lieu d'une feature branch)
 
----
-
-## 🎯 Bonnes Pratiques
-
-### ✅ À faire
-
-- ✅ **Commit fréquemment** avec des messages clairs
-- ✅ **Une branche = une fonctionnalité**
-- ✅ **Toujours `git pull` avant de commencer à travailler**
-- ✅ **Tester avant de commit**
-- ✅ **Utiliser `.gitignore`** pour exclure les fichiers inutiles
-- ✅ **Faire des merge requests** pour le code review
-
-### ❌ À éviter
-
-- ❌ Commit directement sur `main` (travailler sur des branches)
-- ❌ Messages de commit vagues ("fix", "update", "modifs")
-- ❌ Commits trop gros (>500 lignes de changements)
-- ❌ `git push --force` sur des branches partagées
-- ❌ Commit de fichiers sensibles (mots de passe, clés API)
-
----
-
-## 📊 Progression & Jalons
-
-### Compétences acquises
-- ✅**Configuration de Git**
-- ✅ **Création et gestion de branches**
-- ✅ **Commits et messages conventionnels**
-- ✅ **Push/Pull vers dépôt distant**
-- ✅ **Suppression de branches locales et distantes**
-- ✅ **Résolution de conflits de merge**
-- ✅ **Rebase interactif**
-- ✅ **Git hooks et automatisation**
-- ✅ **Gestion avancée des tags et releases**
-
----
-
-## 🔗 Ressources Utiles
-
-### Documentation officielle
-- [Git Documentation](https://git-scm.com/doc)
-- [Pro Git Book (gratuit)](https://git-scm.com/book/fr/v2)
-- [GitHub Guides](https://guides.github.com/)
-- [Conventionnal Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#types)
-
-### Tutoriels interactifs
-- [Learn Git Branching](https://learngitbranching.js.org/?locale=fr_FR)
-- [Git Immersion](https://gitimmersion.com/)
-- [Exercism - Git Track](https://exercism.org/tracks/git)
-
-### Outils
-- [GitKraken](https://www.gitkraken.com/) - Interface graphique
-- [Oh My Zsh Git Plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) - Alias Git
-- [Git Cheat Sheet (PDF)](https://education.github.com/git-cheat-sheet-education.pdf)
-
----
-
-## 📝 Notes Personnelles
-
-### Erreurs courantes rencontrées et solutions
-
-**Problème 1 : `error: failed to push some refs`**
 ```bash
-# Solution : Pull d'abord, puis push
-git pull origin main
-git push origin main
-```
-
-**Problème 2 : Oubli de créer une branche**
-```bash
-# Solution : Créer une branche avec les modifications actuelles
-git stash                    # Sauvegarde les modifications
-git checkout -b nouvelle-branche
-git stash pop               # Récupère les modifications
-```
-
-**Problème 3 : Modifier le dernier commit**
-```bash
-# Solution : Amender le commit
-git add fichier-oublie.py
-git commit --amend --no-edit
+git branch feat/nouvelle-table      # 1. Copier l'état actuel dans une nouvelle branche
+git reset --hard HEAD~1             # 2. Reculer main d'un commit
+git switch feat/nouvelle-table      # 3. Aller sur la bonne branche (le commit y est !)
 ```
 
 ---
-
-## 🤝 Contribution
-
-Ce dépôt est personnel, mais les suggestions d'amélioration sont bienvenues !
-
-Pour proposer une amélioration :
-1. Créer une branche `feat/amelioration-xxx`
-2. Faire vos modifications
-3. Soumettre une merge request avec description détaillée
-
----
-
-## 📜 License
-
-Ce projet est à usage éducatif dans le cadre de mon alternance.
-
----
-
-<div align="center">
 
 **Développé avec 💙 dans le cadre de mon alternance Analytics Engineer**
 
 *Dernière mise à jour : Janvier 2025*
-
-[![Git](https://img.shields.io/badge/Keep-Learning-success)]()
-
-</div>
